@@ -17,7 +17,7 @@
 
 ## Project Structure
 
-.
+    .
     ├── backend
     │   ├── main.py
     │   ├── storage.py
@@ -27,14 +27,6 @@
     ├── docker-compose.yml
     └── README.md
 
-.
-    ├── build                   # Compiled files (alternatively `dist`)
-    ├── docs                    # Documentation files (alternatively `doc`)
-    ├── src                     # Source files (alternatively `lib` or `app`)
-    ├── test                    # Automated tests (alternatively `spec` or `tests`)
-    ├── tools                   # Tools and utilities
-    ├── LICENSE
-    └── README.md
     
 - backend/main.py: The main application file with FastAPI routes.
 - backend/storage.py: Contains the Pydantic model for cost items.
