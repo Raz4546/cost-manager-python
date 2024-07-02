@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
- - Project Structure
+ - [Project Structure](https://github.com/Raz4546/cost-manager-python/blob/main/README.md#project-structure)
  - Getting Started
     - Prerequisites
     - Installation
