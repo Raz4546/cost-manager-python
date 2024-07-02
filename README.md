@@ -18,7 +18,7 @@
 ## Project Structure
 
     .
-    ├── backend
+    ├── [backend](https://github.com/Raz4546/cost-manager-python/tree/main/backend)
     │   ├── main.py
     │   ├── storage.py
     │   ├── test.py
