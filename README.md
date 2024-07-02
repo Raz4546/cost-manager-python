@@ -16,15 +16,15 @@
 - License
 
 ## Project Structure
-> .
-> ├── backend
-> │   ├── main.py
-> │   ├── storage.py
-> │   ├── test.py
-> │   ├── requirements.txt
-> │   └── Dockerfile
-> ├── docker-compose.yml
-> └── README.md
+ .
+ ├── backend
+ │   ├── main.py
+ │   ├── storage.py
+ │   ├── test.py
+ │   ├── requirements.txt
+ │   └── Dockerfile
+ ├── docker-compose.yml
+ └── README.md
 
 - backend/main.py: The main application file with FastAPI routes.
 - backend/storage.py: Contains the Pydantic model for cost items.
