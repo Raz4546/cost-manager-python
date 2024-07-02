@@ -5,15 +5,15 @@
 ## Table of Contents
 
  - [Project Structure](https://github.com/Raz4546/cost-manager-python/blob/main/README.md#project-structure)
- - Getting Started
-    - Prerequisites
-    - Installation
-    - Running the Application
-- API Endpoints
-- Running Tests
-- Docker Setup
-    - Docker Compose
-- License
+ - [Getting Started](https://github.com/Raz4546/cost-manager-python/blob/main/README.md#getting-started)
+    - [Prerequisites](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#prerequisites)
+    - [Installation](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#installation)
+    - [Running the Application](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#running-the-application)
+- [API Endpoints](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#api-endpoints)
+- [Running Tests](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#running-tests)
+- [Docker Setup](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#docker-setup)
+    - [Docker Compose](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#docker-compose)
+- [License](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#license)
 
 ## Project Structure
  .
