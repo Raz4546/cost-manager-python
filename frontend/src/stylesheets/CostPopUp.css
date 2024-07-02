@@ -1,0 +1,78 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    color: #01295F;
+}
+
+.popup-content {
+    text-align: left;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.title-pop {
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 0;
+    width: 90%;
+    padding-top: 8px;
+}
+
+.title-content {
+    display: flex;
+}
+
+.amount {
+    display: flex;
+}
+
+.p-amount-number-red {
+    color: red;
+    margin: 0 0 0 6px;
+}
+
+.p-amount-number-green {
+    color: green;
+    margin: 0 0 0 6px;
+}
+
+.p-amount-string {
+    margin: 0;
+}
+
+.star-empty {
+    width: 10%;
+}
+
+.star-empty:hover {
+    cursor: pointer;
+}
+
+.btn-close {
+    border: 2px grey solid;
+    border-radius: 5px;
+    width: 100px;
+    height: 33px;
+    background-color: #FFFFFF;
+    font-weight: 500;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 17px;
+    transition-duration: .3s;
+    color: #01295F;
+}
+
+.btn-close:hover {
+    cursor: pointer;
+    box-shadow: 2px 4px 20px 0px rgb(199, 196, 196);
+}
+
+.span-btn {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,53 @@
+.cost-card {
+    flex: 1 1 calc(33.333% - 32px);
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 16px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #01295F;
+    min-height: 220px;
+    max-width: 400px;
+    transition-duration: .4s;
+
+}
+
+.amount-positive-amount {
+    color: green;
+}
+
+.amount-negative-amount {
+    color: red;
+}
+
+.middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.balance {
+    display: flex;
+    justify-content: center;
+}
+
+.title1 {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 350;
+    font-family: "Karla", sans-serif;
+    margin: 0;
+}
+
+.cost-card:hover {
+    box-shadow: 2px 3px 20px 0px rgb(199, 196, 196);
+    background-color: #ffffff;
+    border: 1 solid #555454;
+    border-radius: 0px;
+    cursor: pointer;
+}

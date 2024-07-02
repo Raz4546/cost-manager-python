@@ -1,0 +1,62 @@
+.bar-container {
+    font-family: "Karla", sans-serif;
+    font-size: 2rem;
+    font-weight: 30;
+    padding-top: 1rem;
+}
+
+.title {
+    color: #01295F;
+    text-decoration: none;
+    margin-left: 20px;
+    transition-duration: .2s;
+    position: absolute;
+
+}
+
+.add-cost, .favorites, .costs {
+    color: #01295F;
+    text-decoration: none;
+    transition-duration: .5s;
+    position: relative;
+    text-decoration: none;
+    border: 150px;
+    
+}
+
+.title:hover {
+    font-weight: 400;
+}
+
+.add-cost:hover, .favorites:hover, .costs:hover {
+    color: #ce2d58;
+    font-weight: 600;
+}
+
+.left-side {
+    width: 60%;
+    float: left;
+}
+
+.right-side {
+    width: 40%;
+    float: right;
+    display: flex;
+    justify-content: space-around;
+}
+
+.add-cost:after, .favorites:after, .costs:after{
+    content: "";
+    position: absolute;
+    background-color: #fc5884;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: .3s;
+}
+
+.add-cost:hover:after, .favorites:hover:after, .costs:hover:after {
+    width: 100%;
+    position: absolute;
+}

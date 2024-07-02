@@ -1,0 +1,8 @@
+body {
+    background-color: #eceef2;
+}
+
+.app-container {
+    display: grid;
+    row-gap: 2rem;
+}
