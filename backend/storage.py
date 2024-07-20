@@ -7,4 +7,7 @@ class Cost(BaseModel):
     item_id: Optional[str] = 0 
     date: date
     description: str
-    cost: int
+    amount: float
+    balance: str
+    favorite: bool
+    category: str

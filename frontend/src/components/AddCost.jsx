@@ -1,5 +1,5 @@
-import { useState } from "react";
-import costItems from "../storage";
+import React, { useState } from "react";
+import axios from "axios";
 import "../stylesheets/AddCost.css";
 
 const expenseCategories = [
@@ -12,7 +12,6 @@ const expenseCategories = [
 
 const AddCost = () => {
   const [newItem, setNewItem] = useState({
-    id: costItems.length + 1,
     title: "",
     description: "",
     amount: "",
@@ -30,15 +29,10 @@ const AddCost = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (
-      !newItem.title ||
-      !newItem.amount ||
-      !newItem.category ||
-      !newItem.date
-    ) {
+    if (!newItem.title || !newItem.amount || !newItem.category || !newItem.date) {
       alert("Please fill out all required fields.");
       return;
     }
@@ -51,25 +45,28 @@ const AddCost = () => {
       return;
     }
 
-    costItems.push(newItem);
+    try {
+      const response = await axios.post('/addCost', newItem);
+      console.log("New cost item added:", response.data);
 
-    setNewItem({
-      id: costItems.length + 1,
-      title: "",
-      description: "",
-      amount: "",
-      balance: "",
-      date: new Date().toISOString().substr(0, 10),
-      favorite: false,
-      category: "",
-    });
-
-    // Optionally, you might want to save costItems to storage or perform other actions
-    console.log("Updated costItems:", costItems);
+      // Reset form fields
+      setNewItem({
+        title: "",
+        description: "",
+        amount: "",
+        balance: "",
+        date: new Date().toISOString().substr(0, 10),
+        favorite: false,
+        category: "",
+      });
+    } catch (error) {
+      console.error("Error adding new cost item:", error);
+      alert("There was an error adding the new cost item. Please try again.");
+    }
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="add-cost-container">
         <div className="add-cost-paper">
           <span className="input-title-span">
@@ -127,11 +124,7 @@ const AddCost = () => {
             />
           </span>
           <span className="btn-span">
-            <button
-              className="btn-add-cost"
-              type="submit"
-              onClick={handleSubmit}
-            >
+            <button className="btn-add-cost" type="submit">
               SUBMIT
             </button>
           </span>

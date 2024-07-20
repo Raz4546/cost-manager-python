@@ -1,18 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import CostCard from "./CostCard";
 import CostPopUp from "./CostPopUp";
-import costItemsData from "../storage"; // Import the costItems list from storage.js
-import { Pagination } from "@mui/material"; // Import Pagination component from Material-UI
+import { Pagination } from "@mui/material";
 import "../stylesheets/CostList.css";
-import Bar from "./Bar";
 
-const ITEMS_PER_PAGE = 6; // Number of items to display per page
+const ITEMS_PER_PAGE = 6;
 
 const CostLists = () => {
   const [showPopUp, setShowPopUp] = useState(false);
   const [selectedCost, setSelectedCost] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [costItems, setCostItems] = useState(costItemsData);
+  const [costItems, setCostItems] = useState([]);
+
+  useEffect(() => {
+    const fetchCostItems = async () => {
+      try {
+        const response = await axios.get("http://localhost:8000/costs");
+        setCostItems(Array.isArray(response.data) ? response.data : []);
+      } catch (error) {
+        console.error("Error fetching cost items:", error);
+      }
+    };
+
+    fetchCostItems();
+  }, []);
 
   const handleCardClick = (item) => {
     setSelectedCost(item);
@@ -48,7 +60,7 @@ const CostLists = () => {
   };
 
   const handleDeletingClick = (id) => {
-    const newItems = costItems.filter(item => item.id !== id);
+    const newItems = costItems.filter((item) => item.id !== id);
     setCostItems(newItems);
 
     const newTotalPages = Math.ceil(newItems.length / ITEMS_PER_PAGE);
@@ -65,7 +77,7 @@ const CostLists = () => {
   return (
     <div className="cost-lists-container">
       <div className="costs-container">
-        {visibleItems.map((item) => (
+        {Array.isArray(visibleItems) && visibleItems.map((item) => (
           <CostCard
             key={item.id}
             title={item.title}

@@ -10,6 +10,19 @@ services:
     ports:
       - "8000:8000"
     container_name: FastAPI-container
+  frontend:
+    image: frontend
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    networks:
+      - app-network
+    ports:
+      - "3000:3000"
+    container_name: React-container
+
 
 networks:
   app-network:
