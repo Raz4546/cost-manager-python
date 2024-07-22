@@ -8,6 +8,8 @@
  - [Getting Started](https://github.com/Raz4546/cost-manager-python/blob/main/README.md#getting-started)
     - [Prerequisites](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#prerequisites)
     - [Installation](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#installation)
+      - [FastAPI Backend](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#fastapi-backend)
+      - [React Frontend](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#react-frontend)
     - [Running the Application](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#running-the-application)
 - [API Endpoints](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#api-endpoints)
 - [Running Tests](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#running-tests)
