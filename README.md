@@ -92,7 +92,7 @@ To build and run the Docker container using Docker Compose:
 ```sh
 docker-compose up --build
 ```
-2) The application will be available at http://localhost:8000.
+2) The application will be available at [http://localhost:3000](http://localhost:3000).
  ## License
 
 This project is licensed under the [MIT License](LICENSE).
