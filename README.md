@@ -20,8 +20,10 @@
 
 - Python 3.10
 - Docker
-
-## Installation
+- npm
+  
+## FastAPI Backend
+### Installation
 
 1) Clone the repository:
 
@@ -35,21 +37,40 @@ cd cost-management-backend
 ```sh
 pip install -r backend/requirements.txt
 ```
-
-## Running the Application
-
-To run the application locally:
+3) Running the Backend
 
 ```sh
 uvicorn backend.main:app --reload
 ```
-The application will be available at http://127.0.0.1:8000.
+The application will be available at [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+## React Frontend
+### Installation
+1) Navigate to the frontend directory:
+   ```sh
+   cd frontend
+   ```
+2) Install the dependencies:
+   ```sh
+   npm install
+   ```
+3) Running the Application:
+   ```sh
+   npm run dev
+   ```
+The frontend will be available at [http://localhost:5173](http://localhost:5173).
+
+### Building the Application
+To create a production build of the frontend:
+   ```sh
+   npm run build
+   ```
 
 ## API Endpoints
 
 * `GET /` : Returns a welcome message.
 * `GET /costs` : Retrieves the list of monthly costs.
-* `GET /costs/{cost_id}` : Retrieves a single cost item by ID.
+* `GET /favoriteCosts ` : Retrieves the favorite costs.
 * `POST /addCost` : Adds a new cost item.
 * `DELETE /deleteCost/{item_id}` : Deletes a cost item by ID.
 * `PUT /updateCost` : Updates an existing cost item.
