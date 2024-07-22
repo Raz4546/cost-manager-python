@@ -2,24 +2,16 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../stylesheets/AddCost.css";
 
-const expenseCategories = [
-  "Housing",
-  "Transportation",
-  "Food",
-  "Entertainment",
-  "Other",
-];
-
 const AddCost = () => {
   const [newItem, setNewItem] = useState({
     title: "",
     description: "",
     amount: "",
     balance: "",
-    date: new Date().toISOString().substr(0, 10), // Format date as YYYY-MM-DD
+    date: new Date().toISOString().substr(0, 10), 
     favorite: false,
-    category: "", // Initialize category as an empty string
   });
+  const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -29,27 +21,29 @@ const AddCost = () => {
     });
   };
 
+  const validateFields = () => {
+    let errors = {};
+    if (!newItem.title) errors.title = "Title is required.";
+    if (!newItem.amount || newItem.amount <= 0) errors.amount = "Amount must be a positive number.";
+    if (!newItem.date) errors.date = "Date is required.";
+    
+    const selectedDate = new Date(newItem.date);
+    const today = new Date();
+    if (selectedDate > today) errors.date = "Please select a date that is not in the future.";
+    
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!newItem.title || !newItem.amount || !newItem.category || !newItem.date) {
-      alert("Please fill out all required fields.");
-      return;
-    }
-
-    // Validate date: Convert to Date object and compare with today's date
-    const selectedDate = new Date(newItem.date);
-    const today = new Date();
-    if (selectedDate > today) {
-      alert("Please select a date that is not in the future.");
-      return;
-    }
+    if (!validateFields()) return;
 
     try {
-      const response = await axios.post('/addCost', newItem);
+      const response = await axios.post('http://localhost:8000/addCost', newItem);
       console.log("New cost item added:", response.data);
 
-      // Reset form fields
       setNewItem({
         title: "",
         description: "",
@@ -57,7 +51,6 @@ const AddCost = () => {
         balance: "",
         date: new Date().toISOString().substr(0, 10),
         favorite: false,
-        category: "",
       });
     } catch (error) {
       console.error("Error adding new cost item:", error);
@@ -77,6 +70,7 @@ const AddCost = () => {
               value={newItem.title}
               onChange={handleChange}
             />
+            {errors.title && <div className="error-message">{errors.title}</div>}
           </span>
           <span className="input-description-span">
             <h1 className="input-description-text">Description:</h1>
@@ -96,22 +90,7 @@ const AddCost = () => {
               value={newItem.amount}
               onChange={handleChange}
             />
-          </span>
-          <span className="input-category-span">
-            <h1 className="input-category-text">Category:</h1>
-            <select
-              className="input-category-field"
-              name="category"
-              value={newItem.category}
-              onChange={handleChange}
-            >
-              <option value="">Select Category</option>
-              {expenseCategories.map((category, index) => (
-                <option key={index} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
+            {errors.amount && <div className="error-message">{errors.amount}</div>}
           </span>
           <span className="input-date-span">
             <h1 className="input-date-text">Date:</h1>
@@ -122,9 +101,14 @@ const AddCost = () => {
               value={newItem.date}
               onChange={handleChange}
             />
+            {errors.date && <div className="error-message">{errors.date}</div>}
           </span>
           <span className="btn-span">
-            <button className="btn-add-cost" type="submit">
+            <button
+              className="btn-add-cost"
+              type="submit"
+              disabled={!newItem.title || !newItem.amount || !newItem.date}
+            >
               SUBMIT
             </button>
           </span>

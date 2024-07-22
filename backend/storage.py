@@ -3,11 +3,9 @@ from typing import Optional
 from pydantic import BaseModel
 
 class Cost(BaseModel):
-    
-    item_id: Optional[str] = 0 
-    date: date
+    title: str
     description: str
+    date: str
     amount: float
-    balance: str
     favorite: bool
-    category: str
+

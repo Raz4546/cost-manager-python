@@ -78,21 +78,30 @@ def test_update_cost():
     assert updated_json["description"] == "food"   
     assert updated_json["cost"] == 1500   
 
-def test_get_single_cost():
+def test_create_and_get_favorite_cost():
     cost = {
-            "date": "2024-06-23",
-            "description": "gas",
-            "cost": 150
+        "title": "Lunch",
+        "description": "Lunch at a cafe",
+        "amount": 30,
+        "balance": 100,
+        "date": "2024-07-21",
+        "favorite": True  
     }
     response = client.post("/addCost", json=cost)
     assert response.status_code == 200
     res_json = response.json()
     item_id = res_json["item_id"]
 
-    cost_res = client.get(f"/costs/{item_id}")
-    assert cost_res.status_code == 200
-    cost_json = cost_res.json()
-    assert cost_json["item_id"] == item_id
-    assert cost_json["description"] == "gas"
-    assert cost_json["date"] == "2024-06-23"
-    assert cost_json["cost"] == 150
+    favorite_response = client.get("/favoriteCosts")
+    assert favorite_response.status_code == 200
+    favorite_items = favorite_response.json()
+
+    favorite_cost = next((item for item in favorite_items if item["item_id"] == item_id), None)
+    assert favorite_cost is not None
+    assert favorite_cost["item_id"] == item_id
+    assert favorite_cost["title"] == "Lunch"
+    assert favorite_cost["description"] == "Lunch at a cafe"
+    assert favorite_cost["amount"] == 30
+    assert favorite_cost["balance"] == 100
+    assert favorite_cost["date"] == "2024-07-21"
+    assert favorite_cost["favorite"] is True

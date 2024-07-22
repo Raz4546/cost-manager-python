@@ -10,11 +10,16 @@ services:
     ports:
       - "8000:8000"
     container_name: FastAPI-container
+    env_file:
+      - .env
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend:/app 
   frontend:
-    image: frontend
     build:
       context: ./frontend
-      dockerfile: ./Dockerfile
+      dockerfile: Dockerfile
     environment:
       NODE_ENV: production
     networks:
@@ -23,7 +28,19 @@ services:
       - "3000:3000"
     container_name: React-container
 
+  mongodb:
+    image: mongo:latest
+    container_name: MongoDB-container
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+    volumes:
+      - mongodb_data:/data/db
 
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  mongodb_data:
