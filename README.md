@@ -75,7 +75,7 @@ To create a production build of the frontend:
 * `GET /favoriteCosts ` : Retrieves the favorite costs.
 * `POST /addCost` : Adds a new cost item.
 * `DELETE /deleteCost/{item_id}` : Deletes a cost item by ID.
-* `PUT /updateCost` : Updates an existing cost item.
+* `PUT /updateCost/{item_id}` : Updates an existing cost item.
 
 ## Running Tests
 To run the tests:
