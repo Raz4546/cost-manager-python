@@ -15,26 +15,6 @@
     - [Docker Compose](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#docker-compose)
 - [License](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#license)
 
-## Project Structure
-
-    .
-    ├──backend
-    │   ├── main.py
-    │   ├── storage.py
-    │   ├── test.py
-    │   ├── requirements.txt
-    │   └── Dockerfile
-    ├── docker-compose.yml
-    └── README.md
-
-    
-- backend/main.py: The main application file with FastAPI routes.
-- backend/storage.py: Contains the Pydantic model for cost items.
-- backend/test.py: Contains tests for the API endpoints.
-- backend/requirements.txt: Lists the Python dependencies.
-- backend/Dockerfile: Instructions to build the Docker image.
-- docker-compose.yml: Configuration for Docker Compose.
-
 ## Getting Started
 ### Prerequisites
 
