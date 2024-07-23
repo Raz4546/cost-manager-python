@@ -16,6 +16,7 @@
 - [Docker Setup](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#docker-setup)
     - [Docker Compose](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#docker-compose)
 - [License](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#license)
+- [Demo]()
 
 ## Getting Started
 ### Prerequisites
@@ -94,5 +95,8 @@ docker-compose up --build
 ```
 2) The application will be available at [http://localhost:3000](http://localhost:3000).
  ## License
+
+ ## Demo
+ [Link](https://youtu.be/W5LqOPPzjb4)
 
 This project is licensed under the [MIT License](LICENSE).
