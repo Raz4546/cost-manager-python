@@ -16,7 +16,7 @@
 - [Docker Setup](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#docker-setup)
     - [Docker Compose](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#docker-compose)
 - [License](https://github.com/Raz4546/cost-manager-python?tab=readme-ov-file#license)
-- [Demo]()
+- [Demo](https://github.com/Raz4546/cost-manager-python/blob/main/README.md#demo)
 
 ## Getting Started
 ### Prerequisites
